@@ -30,7 +30,7 @@
 
 1. **Клонирование репозитория:**
    ```bash
-   git clone [https://github.com/your-username/my-library-laravel.git](https://github.com/your-username/my-library-laravel.git)
+   git clone https://github.com/ViktorVox/my-library-laravel.git
    cd my-library-laravel
    ```
 2. **Настройка окружения:** Скопируйте пример файла конфигурации:
