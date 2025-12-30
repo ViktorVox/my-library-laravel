@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Author;
+use App\Models\User;
 
 class Book extends Model
 {
@@ -13,7 +15,6 @@ class Book extends Model
     protected $fillable = [
         'user_id',
         'title',
-        'author',
         'image',
         'status',
         'rating',
@@ -23,6 +24,11 @@ class Book extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function authors()
+    {
+        return $this->belongsToMany(Author::class);
     }
 
     public function getStatusLabelAttribute()

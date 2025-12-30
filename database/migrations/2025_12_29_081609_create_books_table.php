@@ -12,17 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('books', function (Blueprint $table) {
-            $table->id(); // ID книги
-            $table->foreignId('user_id'); // foreignId('user_id') создает колонку для ID пользователя
-            $table->string('title'); // Название книги
+            $table->id();                         // ID книги
+            $table->foreignId('user_id');         // foreignId('user_id') создает колонку для ID пользователя
+            $table->string('title');              // Название книги
             $table->string('author')->nullable(); // Автор
-            $table->string('image')->nullable(); // Путь к файлу обложки
-            // Статус книги
-            // По умолчанию книга будет "в планах"
-            $table->enum('status', ['planned', 'reading', 'completed'])->default('planned');
-            $table->tinyInteger('rating')->unsigned()->nullable(); // Рейтинг (целое число от 1 до 5, может быть пустым)
-            $table->text('notes')->nullable(); // Описание/заметки
-            $table->timestamps(); // Дата создания и обновления
+            $table->string('image')->nullable();  // Путь к файлу обложки
+            $table->enum('status', ['planned', 'reading', 'completed'])->default('planned');  // Статус книги
+            $table->tinyInteger('rating')->unsigned()->nullable();                            // Рейтинг (целое число от 1 до 5, может быть пустым)
+            $table->text('notes')->nullable();                                                // Описание/заметки
+            $table->timestamps();                                                             // Дата создания и обновления
         });
     }
 
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('books');
+        Schema::dropIfExists('books'); // Удаляет таблицу books
     }
 };
